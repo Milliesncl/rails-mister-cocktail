@@ -1,0 +1,14 @@
+<h1>Mister cocktail</h1>
+
+<ul><% @cocktails.each do |cocktail| %>
+  <li> <%= link_to cocktail.name, cocktail_path(cocktail.id) %> </li>
+  <% end %>
+</ul>
+
+<h2>Create a new Cocktail</h2>
+
+
+<%= simple_form_for (@cocktail) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Save this cocktail" %>
+<% end %>
