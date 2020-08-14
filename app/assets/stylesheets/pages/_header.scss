@@ -2,19 +2,23 @@
 
 .header {
   // @extend %module;
+  text-decoration: none;
   height: 70px;
   @include transition(all 0.3s ease);
   background: DarkCyan;
-  color: white;
   &:hover {
     background: LightCyan;
-    h1 {
+    a {
       color: grey;
     }
   }
   &::before {
     content: "";
     display: block;
+  }
+  a {
+    text-decoration: none;
+    color: white;
   }
   > h1 {
     // @include transform(rotate(90deg));
