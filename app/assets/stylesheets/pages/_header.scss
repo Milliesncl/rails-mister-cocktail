@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+
+.header {
+  // @extend %module;
+  height: 70px;
+  @include transition(all 0.3s ease);
+  background: DarkCyan;
+  color: white;
+  &:hover {
+    background: LightCyan;
+    h1 {
+      color: grey;
+    }
+  }
+  &::before {
+    content: "";
+    display: block;
+  }
+  > h1 {
+    // @include transform(rotate(90deg));
+    // border-bottom: 1px solid white;
+    font-family: 'Raleway Dots', cursive;
+    padding-top: 10px;
+    text-align: center;
+  }
+}

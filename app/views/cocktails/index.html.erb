@@ -1,14 +1,19 @@
-<h1>Mister cocktail</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)">
+  <h1>All our good cocktails</h1>
+  <br>
+  <p>Find the perfect cocktail</p>
+</div>
 
-<ul><% @cocktails.each do |cocktail| %>
-  <li> <%= link_to cocktail.name, cocktail_path(cocktail.id) %> </li>
-  <% end %>
-</ul>
+<br>
+
+<% @cocktails.each do |cocktail| %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)))"><p><%= link_to cocktail.name, cocktail_path(cocktail.id) %></p></div>
+<% end %>
+
 
 <h2>Create a new Cocktail</h2>
 
-
-<%= simple_form_for (@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Save this cocktail" %>
-<% end %>
+  <%= simple_form_for (@cocktail) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit "Save this cocktail" %>
+  <% end %>
