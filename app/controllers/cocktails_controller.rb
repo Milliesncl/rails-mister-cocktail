@@ -13,7 +13,6 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    # "cocktail"=>{"name"=>"Whisky Coca"}
     @cocktail = Cocktail.new(params_cocktail)
     @cocktail.save
 
