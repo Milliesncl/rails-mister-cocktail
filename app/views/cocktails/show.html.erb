@@ -1,18 +1,34 @@
-<h1><%= @cocktail.name %></h1>
-<%= cl_image_tag @cocktail.photo.key, height: 500, width: 400, crop: :fill %>
-<h2>Recipe</h2>
-<ul><% @cocktail.doses.each do |dose| %>
-  <li><%= dose.ingredient.name %> -
-    <%= dose.description %>
-    <%= link_to "remove", dose_path(dose.id), data: { confirm: "Are you sure to delete #{dose.description} ?" }, method: :delete %></li>
-</li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7">
+    <h1><%= @cocktail.name %></h1>
+      <%= cl_image_tag @cocktail.photo.key, height: 400, width: 500, crop: :fill %>
+    </div>
+    <div class="col-lg-5">
+      <br><br>
+    <h2>Recipe</h2>
+      <ul><% @cocktail.doses.each do |dose| %>
+        <li><%= dose.ingredient.name %> -
+          <%= dose.description %>
+          <br>
+          <%= link_to 'delete', dose_path(dose.id), data: { confirm: "Are you sure to delete #{dose.description} ?" }, method: :delete %></li>
+      </li>
+        <% end %>
+      </ul>
+    </div>
 
-<h2>Add ingredient</h2>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit "Save this dose" %>
-<% end %>
+
+    <div class="col-lg-12">
+      <br>
+      <hr>
+
+      <h2>Add ingredient</h2>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient %>
+        <%= f.submit "Save this dose" %>
+      <% end %>
+    </div>
+  </div>
+</div>
